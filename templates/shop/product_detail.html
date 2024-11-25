@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="card" style="width: 18rem;">
+    {% load static %}
+    {% if object.image %}
+      <img src="{{ object.image.url }}" class="card-img-top" alt="{{ object.name }}" />
+    {% else %}
+      <img src="{% static 'images/no_image.webp' %}" class="card-img-top" alt="{{ object.name }}" />
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{ object.name }}</h5>
+      <p class="card-text">{{ object.description }}</p>
+      <p class="card-text text-end">{{ object.price }} руб.</p>
+    </div>
+  </div>
+{% endblock %}
